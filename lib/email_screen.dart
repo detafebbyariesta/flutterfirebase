@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterfirebase/login_page.dart';
 import 'package:flutterfirebase/sign_in.dart';
 
-class FirstScreen extends StatelessWidget {
+class EmailScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,9 +20,6 @@ class FirstScreen extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               CircleAvatar(
-                backgroundImage: NetworkImage(
-                  imageUrl,
-                ),
                 radius: 60,
                 backgroundColor: Colors.transparent,
               ),
@@ -57,16 +54,14 @@ class FirstScreen extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 40),
-              RaisedButton(
+              ElevatedButton(
                 onPressed: () {
-                  signOutGoogle();
-
+                  signOutWithEmail();
                   Navigator.of(context).pushAndRemoveUntil(
                       MaterialPageRoute(builder: (context) {
                     return LoginPage();
                   }), ModalRoute.withName('/'));
                 },
-                color: Colors.deepPurple,
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
@@ -74,9 +69,6 @@ class FirstScreen extends StatelessWidget {
                     style: TextStyle(fontSize: 25, color: Colors.white),
                   ),
                 ),
-                elevation: 5,
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40)),
               )
             ],
           ),
